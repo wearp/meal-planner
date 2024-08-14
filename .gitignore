@@ -1,0 +1,5 @@
+.env
+.venv/
+meal-planner.db
+.idea/
+__pycache__/
