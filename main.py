@@ -126,6 +126,12 @@ def suggest(email: bool = typer.Option(False, "--send-email")):
         'dinner\n- Sunday should include one dish tagged '
         '"batch cooking"\n\nComma separated list of dishes:\n' + csv_string
     )
+    system_input = (
+        "You are a helpful household assistant for busy parents. Your "
+        "speciality is planning an interesting range of tasty, seasonal "
+        "dishes each week. You keep in mind that parents lead busy, "
+        "stressful lives."
+    )
     client = OpenAI(
         organization="org-CPJ1D5vxPzio5FzJrHRmE90F",
         project="proj_NGoVAyrUQFRIMTLjyUPNF2C0",
@@ -139,13 +145,7 @@ def suggest(email: bool = typer.Option(False, "--send-email")):
                 "role": "system",
                 "content": [
                     {
-                        "text": (
-                            "You are a helpful household assistant for busy "
-                            "parents. Your speciality is planning an "
-                            "interesting range of tasty, seasonal dishes "
-                            "each week. You keep in mind that parents lead "
-                            "busy, stressful lives.",
-                        ),
+                        "text": system_input,
                         "type": "text",
                     }
                 ],
