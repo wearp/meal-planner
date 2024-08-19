@@ -173,7 +173,7 @@ def suggest(email: bool = typer.Option(False, "--send-email")):
             print("Emailing suggestions...")
             send_email(
                 sender_email=SENDER_EMAIL,
-                recipients=["will.earp@icloud.com"],
+                recipients=RECIPIENTS,
                 subject="Meal suggestions for week",
                 body=completion.choices[0].message.content,
             )
